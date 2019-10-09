@@ -4,10 +4,9 @@ import {connect} from 'react-redux'
 import AddedFeature from './AddedFeature';
 import {deleteFeature} from '../state/actionCreators';
 
-export const AddedFeatures = props => {
-  const {carFeatures} = props;
+const AddedFeatures = ({carFeatures, deleteFeature}) => {
 
-  const removeFeature = item => {
+  const removeFeature = item => () => {
     // dispatch an action here to remove an item
     deleteFeature(item);
   };
@@ -30,5 +29,5 @@ export const AddedFeatures = props => {
 
 export default connect(
   state => ({carFeatures: state.car.features}),
-  dispatch => ({deleteFeature: (id, price) => dispatch(deleteFeature(id, price))})
+  dispatch => ({deleteFeature: (idx, price) => dispatch(deleteFeature(idx, price))})
 )(AddedFeatures);
