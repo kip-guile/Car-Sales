@@ -1,6 +1,4 @@
 import * as types from './actionTypes';
-import { statement } from '@babel/template';
-import { template } from '@babel/core';
 
 const initialState = {
     additionalPrice: 0,
@@ -38,7 +36,7 @@ export const reducer = (state = initialState, action) => {
                 car: {
                     ...state.car,
                     features: state.car.features.filter(
-                        item => template.id !== action.payload.id
+                        item => item.id !== action.payload.id
                     )
                 }
             }

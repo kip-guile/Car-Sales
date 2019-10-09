@@ -5,7 +5,7 @@ export function addFeature(item){
             payload: item}
 }
 
-export function addFeature(item){
+export function deleteFeature(item){
     return {type: types.DELETE_FEATURE,
             payload: item}
 }
